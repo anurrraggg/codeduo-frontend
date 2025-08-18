@@ -1,0 +1,83 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-highlight: rgba(255, 255, 255, 0.35);
+  --brand-blue: #4a90e2;
+  --text-ink: #1e2a4a;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--text-ink);
+  background: radial-gradient(1200px 800px at 20% 0%, #dfeaff 0%, #eff5ff 40%, #ffffff 70%),
+              radial-gradient(1000px 600px at 100% 0%, #e2f0ff 0%, #ffffff 60%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme="dark"] {
+  --glass-bg: rgba(10, 20, 40, 0.28);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --brand-blue: #5aa0ff;
+  --text-ink: #eaf2ff;
+
+  color: var(--text-ink);
+  background: radial-gradient(1200px 800px at 20% 0%, #0e1a32 0%, #0b1426 50%, #0a1324 100%),
+              radial-gradient(1000px 600px at 100% 0%, #0b1934 0%, #0a1324 60%);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--brand-blue);
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--brand-blue);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(30, 42, 74, 0.08), inset 0 1px 0 var(--glass-highlight);
+}
