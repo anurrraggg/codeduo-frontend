@@ -2,6 +2,7 @@ import React, { createContext, useCallback, useContext, useEffect, useState } fr
 import apiClient from '../lib/apiClient';
 
 const AuthContext = createContext(null);
+const BASE_API="https://codeduo-backend.vercel.app/"
 
 export function AuthProvider({ children }) {
 	const [currentUser, setCurrentUser] = useState(null);
@@ -16,7 +17,7 @@ export function AuthProvider({ children }) {
 			return null;
 		}
 		try {
-			const response = await apiClient.get('/auth/me');
+			const response = await apiClient.get(`${BASE_API}/auth/me`);
 			setCurrentUser(response.data?.user ?? response.data);
 			return response.data;
 		} catch (_error) {
@@ -35,7 +36,7 @@ export function AuthProvider({ children }) {
 
 	const login = useCallback(async (email, password) => {
 		try {
-			const response = await apiClient.post('/auth/login', { emailOrUsername: email, password });
+			const response = await apiClient.post(`${BASE_API}/auth/login`, { emailOrUsername: email, password });
 			localStorage.setItem('token', response.data.token);
 			setCurrentUser(response.data.user);
 			return response.data.user;
@@ -48,7 +49,7 @@ export function AuthProvider({ children }) {
 	const register = useCallback(async (name, email, password) => {
 		try {
 			// Include 'username' to support backends expecting that field name
-			const response = await apiClient.post('/auth/register', { name, username: name, email, password });
+			const response = await apiClient.post(`${BASE_API}/auth/register`, { name, username: name, email, password });
 			localStorage.setItem('token', response.data.token);
 			setCurrentUser(response.data.user);
 			return response.data.user;
