@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-	baseURL: 'https://codeduo-backend.vercel.app/api',
+	baseURL: '/api',
 });
 
 apiClient.interceptors.request.use((config) => {
